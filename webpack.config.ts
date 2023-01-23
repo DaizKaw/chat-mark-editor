@@ -1,14 +1,13 @@
 import webpack from "webpack";
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import NodeExternals from "webpack-node-externals";
 
 const config: webpack.Configuration = {
   mode: "development",
   entry: path.resolve(__dirname, "./src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "./build"),
-    filename: "index.js",
+    filename: "bundle.js",
   },
   resolve: {
     extensions: [".ts", ".tsx"],
@@ -16,13 +15,16 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(tsx|ts)$/,
         use: [{ loader: "ts-loader" }],
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
-  externals:[NodeExternals()]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "./public/index.html"),
+    }),
+  ],
 };
 
 export default config;

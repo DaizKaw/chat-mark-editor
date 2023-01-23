@@ -2,16 +2,20 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "target": "ES5",
+    "jsx": "react",
+    "target": "ES2016",
+    "module": "CommonJS",
     "allowJs": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-  }
+    "isolatedModules": true
+    ,"rootDir": "./",
+    "outDir": "../build"
+  },
+  "include": ["./**/*.tsx","./**/*.ts"]
+
 }

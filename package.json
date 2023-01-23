@@ -1,11 +1,10 @@
 {
-  "name": "react-typescript",
+  "name": "chat-mark-editor",
   "version": "1.0.0",
-  "description": "React and TypeScript example starter project",
+  "description": "",
   "keywords": [
-    "typescript",
-    "react",
-    "starter"
+    "markdown",
+    "chatwork"
   ],
   "main": "src/index.tsx",
   "dependencies": {
@@ -25,18 +24,13 @@
     "typescript": "4.4.2",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
     "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
     "start": "http-server ./build -p 3000",
     "build": "webpack",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build:watch": "webpack --watch"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "author": "daiz"
 }
