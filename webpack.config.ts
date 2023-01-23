@@ -10,13 +10,17 @@ const config: webpack.Configuration = {
     filename: "bundle.js",
   },
   resolve: {
-    extensions: [".ts", ".tsx"],
+    extensions: [".ts", ".tsx", ".js", ".json", ".css"],
   },
   module: {
     rules: [
       {
         test: /\.(tsx|ts)$/,
         use: [{ loader: "ts-loader" }],
+      },
+      {
+        test: /\.(css)$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
