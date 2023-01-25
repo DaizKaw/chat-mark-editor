@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "easymde/dist/easymde.min.css";
 import "./styles.css";
-import { ASTPreview, Preview } from "./Preview";
+import { ASTPreview, Preview } from "./components/Preview";
 import { genProcesser } from "./Processer";
 import parser from "unofficial-chatwork-parser";
 

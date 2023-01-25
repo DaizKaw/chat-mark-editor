@@ -38,3 +38,11 @@ export function InfoTitle({
     </div>
   );
 }
+
+export function InfoBody({
+  children,
+}: {
+  children?: JSX.Element | JSX.Element[];
+}) {
+  return <span>{children}</span>;
+}

@@ -7,7 +7,9 @@ import { Plugin, unified, Processor } from "unified";
 import { H, all } from "mdast-util-to-hast";
 import { MdastNode } from "mdast-util-to-hast/lib";
 import _ from "lodash";
-import { Info, InfoTitle } from "./components/preview/Info";
+import { Info, InfoBody, InfoTitle } from "./components/preview/Info";
+import { Quote } from "./components/preview/Quote";
+import { Mension } from "./components/preview/Mension";
 
 function generateComponent(className: string) {
   return ({ children, ...props }: any) => (
@@ -56,9 +58,9 @@ export function genProcesser(parser: () => any) {
         components: {
           info: Info,
           "info-heading": InfoTitle,
-          "info-body": generateComponent("info-body"),
-          quote: generateComponent("quote"),
-          mension: generateComponent("mention"),
+          "info-body": InfoBody,
+          quote: Quote,
+          mension: Mension,
           reply: generateComponent("reply"),
           picon: generateComponent("picon"),
           piconname: generateComponent("piconname"),
