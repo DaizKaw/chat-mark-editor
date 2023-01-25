@@ -16,7 +16,19 @@ const config: webpack.Configuration = {
     rules: [
       {
         test: /\.(tsx|ts)$/,
-        use: [{ loader: "ts-loader" }],
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env",
+                "@babel/preset-react",
+                "@emotion/babel-preset-css-prop",
+              ],
+            },
+          },
+          "ts-loader",
+        ],
       },
       {
         test: /\.(css)$/,

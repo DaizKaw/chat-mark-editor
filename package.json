@@ -8,6 +8,7 @@
   ],
   "main": "src/index.tsx",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
     "easymde": "^2.18.0",
     "lodash": "^4.17.21",
     "mdast-util-to-hast": "^12.2.6",
@@ -26,11 +27,16 @@
     "unofficial-chatwork-parser": "^0.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@emotion/babel-preset-css-prop": "^11.10.0",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.18",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@types/webpack-node-externals": "^2.5.3",
+    "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.1",

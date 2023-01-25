@@ -7,6 +7,7 @@ import { Plugin, unified, Processor } from "unified";
 import { H, all } from "mdast-util-to-hast";
 import { MdastNode } from "mdast-util-to-hast/lib";
 import _ from "lodash";
+import { Info, InfoTitle } from "./components/preview/Info";
 
 function generateComponent(className: string) {
   return ({ children, ...props }: any) => (
@@ -53,8 +54,8 @@ export function genProcesser(parser: () => any) {
       {
         createElement: React.createElement,
         components: {
-          info: generateComponent("info"),
-          "info-heading": generateComponent("info-heading"),
+          info: Info,
+          "info-heading": InfoTitle,
           "info-body": generateComponent("info-body"),
           quote: generateComponent("quote"),
           mension: generateComponent("mention"),
