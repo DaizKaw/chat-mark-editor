@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
-import SimpleMde from "react-simplemde-editor";
-import ReactMarkdown from "react-markdown";
+import React, { useState } from "react";
 import "easymde/dist/easymde.min.css";
 import "./styles.css";
-import { unified } from "unified";
-import { remark } from "remark";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import { inspect } from "unist-util-inspect";
+import { ASTPreview, Preview } from "./Preview";
+import { genProcesser } from "./Processer";
+import parser from "unofficial-chatwork-parser";
 
 export default function App() {
+  const processer = genProcesser(parser);
   const [markdownValue, setMarkdownValue] = useState(`# オープニング
 ## Markdown
 - 好きなエディタ
@@ -30,45 +25,41 @@ export default function App() {
   1. 駅から徒歩3分
 
 アンケートの結果、先月は実に~~80%~~ 90% の方から高い満足度が得られました！
+[info]Hello[/info]
+[picon:1234]
+[piconname:1234]
+[hr]
+[To:1234]
+[返信 aid=1234 to=1234-1234]
+[info]
+[title]タイトル[/title]
+情報
+[/info]
+[qt][qtmeta aid=1234 time=1638694801]
+引用開始
+[info]
+引用の中のinfo[/info]
+引用終わり[/qt]
+URL http://example.com
   `);
-  const [p, setP] = useState<any>();
-
-  const onChange = (value: string) => {
-    setMarkdownValue(value);
-  };
-
-  useEffect(() => {
-    (async () => {
-      const processer = unified()
-        .use(remarkParse)
-        .use(remarkGfm)
-        .use(remarkRehype)
-        .use(rehypeStringify);
-      const data = await processer.parse(markdownValue);
-      setP(inspect(data));
-    })();
-  }, [markdownValue]);
 
   return (
     <div className="top-layout">
-      {/* <SimpleMde value={markdownValue} onChange={onChange} /> */}
       <div>
         <textarea
           value={markdownValue}
           onChange={(e) => {
-            onChange(e.target.value);
+            setMarkdownValue(e.target.value);
           }}
         />
       </div>
 
       <div>
-        <pre>{p}</pre>
+        <ASTPreview processer={processer} text={markdownValue} />
       </div>
 
       <div className="markdown-area">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {markdownValue}
-        </ReactMarkdown>
+        {<Preview processer={processer} text={markdownValue} />}
       </div>
     </div>
   );

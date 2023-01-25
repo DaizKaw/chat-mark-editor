@@ -12,10 +12,10 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true
-    ,"rootDir": "./",
+    "isolatedModules": true,
+    "rootDir": "./",
     "outDir": "../build"
   },
-  "include": ["./**/*.tsx","./**/*.ts"]
-
+  "include": ["./**/*.tsx", "./**/*.ts"],
+  "exclude": []
 }
