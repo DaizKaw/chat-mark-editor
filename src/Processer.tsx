@@ -10,6 +10,9 @@ import _ from "lodash";
 import { Info, InfoBody, InfoTitle } from "./components/preview/Info";
 import { Quote } from "./components/preview/Quote";
 import { Mension } from "./components/preview/Mension";
+import { Reply } from "./components/preview/Reply";
+import { Picon, Piconname } from "./components/preview/Picon";
+import { Plain } from "./components/preview/Plain";
 
 function generateComponent(className: string) {
   return ({ children, ...props }: any) => (
@@ -44,7 +47,8 @@ export function genProcesser(parser: () => any) {
         reply: generateHandler("reply", ["aid", "rid", "mid"]),
         picon: generateHandler("picon", ["value"]),
         piconname: generateHandler("piconname", ["value"]),
-        // plain: generateHandler("plain"),
+        plain: generateHandler("plain", ["value"]),
+        root: generateHandler("root"),
       },
     } as MdOptions)
     .use(
@@ -61,9 +65,13 @@ export function genProcesser(parser: () => any) {
           "info-body": InfoBody,
           quote: Quote,
           mension: Mension,
-          reply: generateComponent("reply"),
-          picon: generateComponent("picon"),
-          piconname: generateComponent("piconname"),
+          reply: Reply,
+          picon: Picon,
+          piconname: Piconname,
+          plain: Plain,
+          root: ({ children }: any) => (
+            <pre className="chatwork-preview">{children}</pre>
+          ),
         },
       } as Options
     );

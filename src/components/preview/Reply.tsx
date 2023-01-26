@@ -1,16 +1,18 @@
 import { css } from "@emotion/react";
 
 const mensionCss = css({
-  disply: "inline-flex",
+  disply: "flex",
 });
 
-export function Mension({}: {
-  value: string;
+export function Reply({}: {
+  aid: string;
+  rid: string;
+  mid: string;
   children: JSX.Element | JSX.Element[];
 }) {
   return (
     <div css={mensionCss}>
-      <div>TO</div>
+      <div>RE</div>
       <div></div>
     </div>
   );

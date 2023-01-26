@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "rootDir": "./",
     "outDir": "../build",
-    "types": ["@emotion/react/types/css-prop"]
+    "types": ["@emotion/react/types/css-prop"],
+    "typeRoots": ["./types", "node_modules/@types"]
   },
   "include": ["./**/*.tsx", "./**/*.ts"],
   "exclude": []

@@ -1,36 +1,30 @@
 import React, { useState } from "react";
 import "easymde/dist/easymde.min.css";
-import "./styles.css";
+import "./style/styles.css";
 import { ASTPreview, Preview } from "./components/Preview";
 import { genProcesser } from "./Processer";
 import parser from "unofficial-chatwork-parser";
+import { css } from "@emotion/react";
+
+const appCss = css({
+  display: "grid",
+  gridTemplateColumns: "50vw 50vw",
+  gridTemplateRows: "100vh",
+  ".editor": {
+    width: "100%",
+    height: "100%",
+  },
+});
 
 export default function App() {
   const processer = genProcesser(parser);
-  const [markdownValue, setMarkdownValue] = useState(`# オープニング
-## Markdown
-- 好きなエディタ
-  - VSCode
-  - Vim
-  - Typora
-
-1. 住みたい町
-  1. 鎌倉
-  1. 神楽坂
-  1. 荻窪
-
-1. 部屋の条件
-  1. 騒音
-  1. ペット可
-  1. 駅から徒歩3分
-
-アンケートの結果、先月は実に~~80%~~ 90% の方から高い満足度が得られました！
+  const [markdownValue, setMarkdownValue] = useState(`
 [info]Hello[/info]
-[picon:1234]
-[piconname:1234]
-[hr]
-[To:1234]
-[返信 aid=1234 to=1234-1234]
+[picon:1234]feaefaf
+[piconname:1234]feafafeafe
+[hr]feafwff
+[To:1234]feafaf
+[返信 aid=1234 to=1234-1234]feafeaf
 [info]
 [title]タイトル[/title]
 情報
@@ -44,9 +38,10 @@ URL http://example.com
   `);
 
   return (
-    <div className="top-layout">
+    <div css={appCss}>
       <div>
         <textarea
+          className="editor"
           value={markdownValue}
           onChange={(e) => {
             setMarkdownValue(e.target.value);
@@ -54,9 +49,9 @@ URL http://example.com
         />
       </div>
 
-      <div>
+      {/* <div>
         <ASTPreview processer={processer} text={markdownValue} />
-      </div>
+      </div> */}
 
       <div className="markdown-area">
         {<Preview processer={processer} text={markdownValue} />}

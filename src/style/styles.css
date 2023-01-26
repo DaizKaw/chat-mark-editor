@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(248, 250, 252);
+}
+
+.chatwork-preview {
+  display: table;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: rgb(36, 36, 36);
+  font-family: -apple-system, BlinkMacSystemFont, ".SFNSDisplay-Regular",
+    "Segoe UI", "Helvetica Neue", "Hiragino Sans",
+    "\30D2\30E9\30AE\30CE\89D2\30B4\30B7\30C3\30AF", "Hiragino Kaku Gothic ProN",
+    "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", Meiryo, "\30E1\30A4\30EA\30AA",
+    "MS PGothic", "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif;
+}

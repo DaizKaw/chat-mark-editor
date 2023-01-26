@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { Processor } from "unified";
 import { inspect } from "unist-util-inspect";
@@ -21,6 +22,10 @@ export function ASTPreview({
   return <pre>{content}</pre>;
 }
 
+const previewCss = css({
+  padding: "0 40px",
+});
+
 export function Preview({
   text,
   processer,
@@ -36,5 +41,5 @@ export function Preview({
     });
   }, [text]);
 
-  return <div>{content}</div>;
+  return <div css={previewCss}>{content}</div>;
 }
