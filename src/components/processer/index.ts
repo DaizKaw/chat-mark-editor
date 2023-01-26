@@ -1,24 +1,19 @@
 import { Options as MdOptions } from "mdast-util-to-hast";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import compiler from "rehype-react";
 import { Options, Root } from "rehype-react/lib";
 import mdast2hast from "remark-rehype";
-import { Plugin, unified, Processor } from "unified";
+import { Plugin, unified } from "unified";
 import { H, all } from "mdast-util-to-hast";
 import { MdastNode } from "mdast-util-to-hast/lib";
 import _ from "lodash";
-import { Info, InfoBody, InfoTitle } from "./components/preview/Info";
-import { Quote } from "./components/preview/Quote";
-import { Mension } from "./components/preview/Mension";
-import { Reply } from "./components/preview/Reply";
-import { Picon, Piconname } from "./components/preview/Picon";
-import { Plain } from "./components/preview/Plain";
-
-function generateComponent(className: string) {
-  return ({ children, ...props }: any) => (
-    <div className={`${className} ${JSON.stringify(props)}`}>{children}</div>
-  );
-}
+import { Info, InfoBody, InfoTitle } from "./chatworkComponents/Info";
+import { Quote } from "./chatworkComponents/Quote";
+import { Mension } from "./chatworkComponents/Mension";
+import { Reply } from "./chatworkComponents/Reply";
+import { Picon, Piconname } from "./chatworkComponents/Picon";
+import { Plain } from "./chatworkComponents/Plain";
+import { Root as ChatworkPreviewRoot } from "./chatworkComponents/Root";
 
 function generateHandler(key: string, propKeys: string[] = []) {
   return (h: H, node: MdastNode) =>
@@ -69,9 +64,7 @@ export function genProcesser(parser: () => any) {
           picon: Picon,
           piconname: Piconname,
           plain: Plain,
-          root: ({ children }: any) => (
-            <pre className="chatwork-preview">{children}</pre>
-          ),
+          root: ChatworkPreviewRoot,
         },
       } as Options
     );

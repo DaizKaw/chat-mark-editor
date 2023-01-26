@@ -6,6 +6,7 @@ const infoCss = css({
   border: "1px solid rgba(0, 0, 0, 0.25)",
   backgroundColor: "rgba(255, 255, 255, 0.85)",
   borderRadius: "4px",
+  width: "100%",
 });
 
 const infoTitleCss = css({

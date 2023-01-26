@@ -23,7 +23,10 @@ export function ASTPreview({
 }
 
 const previewCss = css({
-  padding: "0 40px",
+  padding: "0 20px",
+  overflowY: "scroll",
+  height: "100%",
+  width: "50vw",
 });
 
 export function Preview({

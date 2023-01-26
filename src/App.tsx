@@ -2,23 +2,24 @@ import React, { useState } from "react";
 import "easymde/dist/easymde.min.css";
 import "./style/styles.css";
 import { ASTPreview, Preview } from "./components/Preview";
-import { genProcesser } from "./Processer";
-import parser from "unofficial-chatwork-parser";
+import { genProcesser } from "./components/processer";
+import parser from "./components/parser";
 import { css } from "@emotion/react";
+import { Editor } from "./components/Editor";
+import { Bar } from "./components/Bar";
 
 const appCss = css({
-  display: "grid",
-  gridTemplateColumns: "50vw 50vw",
-  gridTemplateRows: "100vh",
-  ".editor": {
-    width: "100%",
-    height: "100%",
+  overflow: "hidden",
+  ".main": {
+    display: "grid",
+    gridTemplateColumns: "50vw 50vw",
+    gridTemplateRows: "calc(100vh - 50px)",
   },
 });
 
 export default function App() {
   const processer = genProcesser(parser);
-  const [markdownValue, setMarkdownValue] = useState(`
+  const [text, setText] = useState(`
 [info]Hello[/info]
 [picon:1234]feaefaf
 [piconname:1234]feafafeafe
@@ -39,22 +40,17 @@ URL http://example.com
 
   return (
     <div css={appCss}>
-      <div>
-        <textarea
-          className="editor"
-          value={markdownValue}
-          onChange={(e) => {
-            setMarkdownValue(e.target.value);
-          }}
-        />
-      </div>
+      <Bar />
+      <div className="main">
+        <Editor text={text} setText={setText} />
 
-      {/* <div>
-        <ASTPreview processer={processer} text={markdownValue} />
+        {/* <div>
+        <ASTPreview processer={processer} text={text} />
       </div> */}
 
-      <div className="markdown-area">
-        {<Preview processer={processer} text={markdownValue} />}
+        <div className="markdown-area">
+          {<Preview processer={processer} text={text} />}
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import ico_avatar_notfound from "../../img/ico_avatar_notfound.png";
+import ico_avatar_notfound from "../../../img/ico_avatar_notfound.png";
 
 const piconCss = ({ iconOnly }: { iconOnly?: boolean }) =>
   css({
