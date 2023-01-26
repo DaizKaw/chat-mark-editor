@@ -36,6 +36,8 @@ export default function App() {
 引用の中のinfo[/info]
 引用終わり[/qt]
 URL http://example.com
+[引用 aid=12342 time=1374542168][返信 aid=12312 to=307091745-1669618525989261312]Bob
+Hello World[/引用]
   `);
 
   return (
