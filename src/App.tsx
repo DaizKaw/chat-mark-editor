@@ -19,26 +19,37 @@ const appCss = css({
 
 export default function App() {
   const processer = genProcesser(parser);
-  const [text, setText] = useState(`
-[info]Hello[/info]
-[picon:1234]feaefaf
-[piconname:1234]feafafeafe
-[hr]feafwff
-[To:1234]feafaf
-[返信 aid=1234 to=1234-1234]feafeaf
-[info]
-[title]タイトル[/title]
-情報
-[/info]
-[qt][qtmeta aid=1234 time=1638694801]
-引用開始
-[info]
-引用の中のinfo[/info]
-引用終わり[/qt]
-URL http://example.com
-[引用 aid=12342 time=1374542168][返信 aid=12312 to=307091745-1669618525989261312]Bob
-Hello World[/引用]
-  `);
+  const [text, setText] = useState(`[info][title]これはなに？[/title]
+  ビジネスチャットサービスChatwork上で使えるメッセージ記法用のエディターです。
+  プレビューを見ながら書くことができます。
+※完璧に再現できていない箇所もあります。ご注意ください。
+  
+  ↓Chatwork
+  https://go.chatwork.com/ja
+  
+  ↓メッセージ記法について
+  https://developer.chatwork.com/docs/message-notation[/info]
+
+  以下はサンプル
+  [hr]
+  [To:1234]
+  [返信 aid=1234 to=1234-1234]Aさん
+  [picon:1234]Aさん
+  [piconname:1234]Aさん
+  [info][title]タイトル[/title]
+  情報
+  [info]info内のinfo[/info]
+  [/info]
+  
+  [引用 aid=12342 time=1374542168]
+  引用開始
+  [info]
+  引用内のinfo[/info]
+  [引用 aid=12342 time=1374542168]
+  引用内の引用
+  [/引用]
+  引用終わり
+  [/引用]`);
 
   return (
     <div css={appCss}>
