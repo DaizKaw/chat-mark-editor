@@ -5,6 +5,7 @@ body {
 }
 
 .chatwork-preview {
+  width: calc(50vw - 50px);
   display: table;
   font-size: 14px;
   font-weight: 400;
