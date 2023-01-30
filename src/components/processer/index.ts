@@ -14,6 +14,7 @@ import { Reply } from "./chatworkComponents/Reply";
 import { Picon, Piconname } from "./chatworkComponents/Picon";
 import { Plain } from "./chatworkComponents/Plain";
 import { Root as ChatworkPreviewRoot } from "./chatworkComponents/Root";
+import { Code } from "./chatworkComponents/Code";
 
 function generateHandler(key: string, propKeys: string[] = []) {
   return (h: H, node: MdastNode) =>
@@ -42,6 +43,7 @@ export function genProcesser(parser: () => any) {
         reply: generateHandler("reply", ["aid", "rid", "mid"]),
         picon: generateHandler("picon", ["value"]),
         piconname: generateHandler("piconname", ["value"]),
+        code: generateHandler("code"),
         plain: generateHandler("plain", ["value"]),
         root: generateHandler("root"),
       },
@@ -63,6 +65,7 @@ export function genProcesser(parser: () => any) {
           reply: Reply,
           picon: Picon,
           piconname: Piconname,
+          code: Code,
           plain: Plain,
           root: ChatworkPreviewRoot,
         },

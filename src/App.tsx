@@ -49,7 +49,8 @@ export default function App() {
   引用内の引用
   [/引用]
   引用終わり
-  [/引用]`);
+  [/引用]
+[code]console.log("Hello World");[/code]`);
 
   return (
     <div css={appCss}>
