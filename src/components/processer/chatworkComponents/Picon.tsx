@@ -32,9 +32,14 @@ function Icon() {
   return <img css={iconCss} src={ico_avatar_notfound} />;
 }
 
-export function Picon({}: { value: string }) {
+export function Picon({
+  iconOnly = true,
+}: {
+  value: string;
+  iconOnly?: boolean;
+}) {
   return (
-    <span css={piconCss({ iconOnly: true })}>
+    <span css={piconCss({ iconOnly })}>
       <span className="icon">
         <button>
           <Icon />
