@@ -24,7 +24,7 @@
     "remark-rehype": "^10.1.0",
     "unified": "^10.1.2",
     "unist-util-inspect": "^7.0.1",
-    "unofficial-chatwork-parser": "github:DaizKaw/unofficial-chatwork-parser#feat"
+    "unofficial-chatwork-parser": "github:DaizKaw/unofficial-chatwork-parser"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
